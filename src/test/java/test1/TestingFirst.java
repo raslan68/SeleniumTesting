@@ -79,10 +79,9 @@ public class TestingFirst {
 
         Select select = new Select(country);
         //select.selectByVisibleText("Finland");
+        //country.sendKeys(Keys.ENTER);
         System.out.println("Countries Size is " + select.getOptions().size());
         List<WebElement> options = select.getOptions();
-        //country.sendKeys(Keys.ENTER);
-        System.out.println(options.size());
 
         for (WebElement state : options){
             if (state.getText().equals("Germany")) {
@@ -103,9 +102,7 @@ public class TestingFirst {
 
 
         Thread.sleep(2000);
-        //driver.navigate().to("https://services.usu.com/simplesaml/module.php/aspera/requestlogin.php?AuthState=_e17f1706e9180df24a9d0ab036055132ef3e5b9ba9:https://services.usu.com/simplesaml/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fservices.usu.com%2Fsimplesaml%2Fmodule.php%2Fsaml%2Fsp%2Fmetadata.php%2Ftypo3-sp&RelayState=https%3A%2F%2Fservices.usu.com%2Fknowledgehub%2Fen%2F%3Flogintype%3Dlogin&cookieTime=1686923853");
         String actual = driver.findElement(By.xpath("//*[text()='Vielen Dank für Ihre Registrierung.']")).getText();
-
         Assert.assertEquals(actual, "Vielen Dank für Ihre Registrierung.");
     }
 
