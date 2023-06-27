@@ -1,5 +1,6 @@
 package test1;
 
+import Pages.HomePages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -14,13 +15,14 @@ import java.util.List;
 public class TestingFirst {
 
     WebDriver driver;
+    HomePages homePages = new HomePages();
     @BeforeMethod
     public void setUp() throws InterruptedException {
        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.get("https://www.usu.com/de-de/");
         Thread.sleep(2000);
-        WebElement cokies = driver.findElement(By.xpath("//*[contains(text(),'Alle akzeptieren')]"));
+        WebElement cokies = driver.findElement(homePages.cookies);
         cokies.click();
     }
     @Test
@@ -35,17 +37,17 @@ public class TestingFirst {
 
     @Test
     public void Unternehmen() throws InterruptedException {
-        WebElement unternehmenButton = driver.findElement(By.xpath("//a[normalize-space()='Unternehmen']"));
+        WebElement unternehmenButton = driver.findElement(homePages.UnternehmenButton);
         Actions action = new Actions(driver);
         action.moveToElement(unternehmenButton).build().perform();
         Thread.sleep(2000);
-        WebElement karrier = driver.findElement(By.xpath("//*[@id=\"→unternehmen\"]/li[6]"));
+        WebElement karrier = driver.findElement(homePages.Karrier);
         action.moveToElement(karrier).build().perform();
         driver.findElement(By.xpath("//*[@id=\"→karriere\"]/li[1]/a[1]")).click();
-        WebElement jobfinden = driver.findElement(By.xpath("//*[@id=\"edit-text--8\"]"));
+        WebElement jobfinden = driver.findElement(homePages.JobFinden);
         jobfinden.sendKeys("Softwareentwickler", Keys.ENTER);
         Thread.sleep(2000);
-        WebElement junior =driver.findElement(By.xpath("//span[contains(text(),'Junior Softwareentwickler / Consultant - Enterprise')]"));
+        WebElement junior =driver.findElement(homePages.junior);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("arguments[0].click();", junior);
 
