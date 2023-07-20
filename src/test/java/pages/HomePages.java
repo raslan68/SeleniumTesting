@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 
 public class HomePages {
 
-     public By  cookies = By.xpath("//*[contains(text(),'Alle akzeptieren')]");
-     public By UnternehmenButton = By.xpath("//a[normalize-space()='Unternehmen']");
-     public By Karrier = By.xpath("//*[@id=\"→unternehmen\"]/li[6]");
-     public By JobFinden = By.xpath("//*[@id=\"edit-text--8\"]");
-     public By junior= By.xpath("//span[contains(text(),'Junior Softwareentwickler / Consultant - Enterprise')]");
+     public By  cookies = By.xpath("//button[@id='uc-btn-accept-banner']");
+     public By EndeckePlusLogoButton = By.xpath("//span[normalize-space()='Entdecke']");
+     public By HomeHerrenButton = By.xpath("//span[@class='KxHAYs _2kjxJ6 dgII7d _5PMpaO']");
+     public By HomeBekleidungButton = By.xpath("//span[@class='KxHAYs lystZ1 FxZV-M _4F506m'][normalize-space()='Bekleidung']");
+     public By homeHemdenUnderBekleidung = By.xpath("//span[normalize-space()='Hemden']");
 }
