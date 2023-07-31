@@ -1,17 +1,18 @@
 package test1;
 
-import pages.HomePages;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePages;
 import utilities.ConfigurationReader;
 import utilities.WebDriverFactory;
-import org.openqa.selenium.Keys;
 
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class TestingFirst {
 
@@ -22,7 +23,8 @@ public class TestingFirst {
        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.get(ConfigurationReader.get("url"));
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(3000);
         WebElement cokies = driver.findElement(homePages.cookies);
         cokies.click();
     }
@@ -44,6 +46,23 @@ public class TestingFirst {
         action.moveToElement(unternehmenButton).build().perform();
         Thread.sleep(2000);
         driver.findElement(homePages.homeHemdenUnderBekleidung).click();
+
+        driver.findElement(homePages.btnHomeUnderBekleidungHemdenGrosse).click();
+        driver.findElement(homePages.ddHomeUnderBekleidungHemdenGrosse42).click();
+        driver.findElement(homePages.btnHomeUnderBekleidungHemdenGrosse).click();
+        Thread.sleep(3000);
+        driver.findElement(homePages.btnHomeUnderBekleidungHemdenPreis).click();
+        driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisAb).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisAb).sendKeys(Keys.DELETE);
+        driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisAb).sendKeys("20");
+        driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisBis).sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE);
+        driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisBis).sendKeys("70");
+
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("window.scrollBy(0,500)");
+        driver.findElement(homePages.btnHomeUnderBekleidungHemdenPreis).click();
+
+
 
 
         //JavascriptExecutor jse = (JavascriptExecutor) driver;

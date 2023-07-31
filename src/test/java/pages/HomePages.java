@@ -7,6 +7,16 @@ public class HomePages {
      public By  cookies = By.xpath("//button[@id='uc-btn-accept-banner']");
      public By EndeckePlusLogoButton = By.xpath("//span[normalize-space()='Entdecke']");
      public By HomeHerrenButton = By.xpath("//span[@class='KxHAYs _2kjxJ6 dgII7d _5PMpaO']");
-     public By HomeBekleidungButton = By.xpath("//span[@class='KxHAYs lystZ1 FxZV-M _4F506m'][normalize-space()='Bekleidung']");
+     public By HomeBekleidungButton = By.xpath("//span[contains(text(),'Bekleidung')]");
      public By homeHemdenUnderBekleidung = By.xpath("//span[normalize-space()='Hemden']");
+     public By btnHomeUnderBekleidungHemdenGrosse = By.xpath("//button[@aria-label='Filtere nach Größe']");
+     public By ddHomeUnderBekleidungHemdenGrosse42 = By.xpath("//span[normalize-space()='42']");
+     public By btnHomeUnderBekleidungHemdenGrosseSpeichern = By.xpath("//span[normalize-space()='Speichern']");
+
+     public By btnHomeUnderBekleidungHemdenPreis = By.xpath("//button[@aria-label='Filtere nach Preis']");
+     public By txtHomeUnderBekleidungHemdenPreisAb = By.xpath("//input[@id='collection-view-desktop-filter-prices-minimum']");
+     public By txtHomeUnderBekleidungHemdenPreisBis = By.xpath("//input[@id='collection-view-desktop-filter-prices-maximum']");
+     public By btnHomeUnderBekleidungHemdenPreisSpeichern = By.xpath("//span[normalize-space()='Speichern']");
+
+
 }
