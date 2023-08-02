@@ -62,12 +62,5 @@ public class TestingFirst {
         jse.executeScript("window.scrollBy(0,500)");
         driver.findElement(homePages.btnHomeUnderBekleidungHemdenPreis).click();
 
-
-
-
-        //JavascriptExecutor jse = (JavascriptExecutor) driver;
-        //jse.executeScript("arguments[0].click();", junior);
-
-
     }
 }
