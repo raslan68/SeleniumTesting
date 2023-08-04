@@ -23,7 +23,6 @@ public class TestingFirst {
        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.get(ConfigurationReader.get("url"));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Thread.sleep(3000);
         WebElement cokies = driver.findElement(homePages.cookies);
         cokies.click();
@@ -47,10 +46,13 @@ public class TestingFirst {
         Thread.sleep(2000);
         driver.findElement(homePages.homeHemdenUnderBekleidung).click();
 
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(homePages.btnHomeUnderBekleidungHemdenGrosse).click();
         driver.findElement(homePages.ddHomeUnderBekleidungHemdenGrosse42).click();
         driver.findElement(homePages.btnHomeUnderBekleidungHemdenGrosse).click();
+
         Thread.sleep(3000);
+
         driver.findElement(homePages.btnHomeUnderBekleidungHemdenPreis).click();
         driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisAb).sendKeys(Keys.CONTROL + "a");
         driver.findElement(homePages.txtHomeUnderBekleidungHemdenPreisAb).sendKeys(Keys.DELETE);
