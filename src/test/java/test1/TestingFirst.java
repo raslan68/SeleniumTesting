@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePages;
@@ -26,6 +27,10 @@ public class TestingFirst {
         Thread.sleep(3000);
         WebElement cokies = driver.findElement(homePages.cookies);
         cokies.click();
+    }
+    @AfterMethod
+    public  void afterMethod(){
+        driver.quit();
     }
     @Test
     public void HomePage() throws InterruptedException {
