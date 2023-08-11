@@ -1,9 +1,6 @@
 package test1;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -13,6 +10,7 @@ import pages.HomePages;
 import utilities.ConfigurationReader;
 import utilities.WebDriverFactory;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class TestingFirst {
@@ -30,12 +28,15 @@ public class TestingFirst {
     }
     @AfterMethod
     public  void afterMethod(){
-        driver.quit();
+        //driver.quit();
     }
     @Test
     public void HomePage() throws InterruptedException {
 
+        driver.findElement(homePages.HomeHerrenButton).click();
+
         WebElement endeckePlusLogoButton = driver.findElement(homePages.EndeckePlusLogoButton);
+        File screen = endeckePlusLogoButton.getScreenshotAs(OutputType.FILE);
         endeckePlusLogoButton.click();
         String currentUrlZalandoPlus = driver.getCurrentUrl();
         String expectedUrlZalandoPlus = "https://www.zalando.de/zalandoplus/";
@@ -69,5 +70,10 @@ public class TestingFirst {
         jse.executeScript("window.scrollBy(0,500)");
         driver.findElement(homePages.btnHomeUnderBekleidungHemdenPreis).click();
 
+    }
+
+    @Test
+    public void HomeBekleidungHemdenAngeboteDirektPerMail() throws InterruptedException {
+        driver.findElement(homePages.btnTxtHerrenHomeInspirierendeStorysAdidas).click();
     }
 }
